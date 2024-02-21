@@ -37,3 +37,11 @@ https://gpt.censys.io/
 ## Read the docs of censys if you want to add something to the code
 
 https://censys-python.readthedocs.io/en/stable/usage-v2.html
+
+
+
+
+## status.py
+
+
+Can help you get a list of successful responses
