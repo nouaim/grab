@@ -21,12 +21,12 @@ try:
                 response = requests.get(target)
                 if response.status_code == 200:
                     result = f"{GREEN}{target} is responding with a 200 OK status.{END_COLOR}\n"
-                    output_file.write(result)
+                    output_file.write(target + "\n")
                 elif response.status_code >= 400:
                     result = f"{RED}{target} is responding with a {response.status_code} status.{END_COLOR}\n"
                 elif response.status_code >= 300:
                     result = f"{YELLOW}{target} is responding with a {response.status_code} status (warning).{END_COLOR}\n"
-                    output_file.write(result)
+                    output_file.write(target + "\n")
                 print(result, end='')  # Print to terminal as well
             except requests.RequestException as e:
                 result = f"{RED}Error accessing {target}: {e}{END_COLOR}\n"
