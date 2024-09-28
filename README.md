@@ -1,47 +1,52 @@
-## Description
+<h1 align="center">
+  <br>
+  <img src="logo/grab.png" alt="Grab Logo" width="100"> 
+</h1>
 
-This tool helps you collect ips from cencys.
+<h4 align="center">Grab: Streamline Your Cybersecurity Workflow with Censys</h4>
 
-## Benifit 
+Grab is a command-line tool designed to simplify the process of collecting target IP addresses from Censys, a powerful search engine for discovering internet-connected devices.
 
-Collect condidate ips you wanna do your tests on, then you can feed the hosts to tools Jaeles, nuklei, any other cve check tool, or open source POC scripts.
+## Why Grab?
 
+Collect candidate IPs for your security tests, then feed these hosts to tools like Jaeles, Nuclei, other CVE check tools, or open-source POC scripts.
 
-## install and configure
-```shell
-pip install censys
-```
-then,
-you simple need to copy api id, and api secret
+## Getting Started
 
-https://censys-python.readthedocs.io/en/stable/quick-start.html
+1. Installation:
+   ```shell
+   pip install censys
+   ```
+2. Censys API Credentials: Obtain your API ID and API Secret from the Censys website: https://censys-python.readthedocs.io/en/stable/quick-start.html and add them to your configuration.
 
-## Queries
+## Crafting Censys Queries
 
-- services.http.response.headers: (key: server and value: e*mail)
-- location.country: {Canada, Chile, Honduras, Mexico, “United States”, Uruguay}
+- services.http.response.headers: (key: server and value: e\*mail)
+
+- Target systems located in specific countries: `location.country: {Canada, Chile, Honduras, Mexico, "United States", Uruguay}`
+
 - h.search(
-    query=query, fields=["ip", "services.port", "services.service_name"]
-)
+  query=query, fields=["ip", "services.port", "services.service_name"]
+  )
+  
 - services.service_name: HTTP
-- services.http.response.headers: (key: `Etag` and value.headers: `"6001043d.16d"`)
-- services.http.response.html_title: "your dashboard" 
 
- 
+- Discover HTTP servers with a specific ETag value: `services.http.response.headers: (key: `Etag`and value.headers:`"6001043d.16d"`)`
 
-## if you want to generate queries you can use this gpt tool they've made : 
+- services.http.response.html_title: "your dashboard"
+
+## Generate Queries with Censys GPT Tool
+
+To generate queries, use this GPT tool created by Censys:
+
 https://gpt.censys.io/
 
+## Extend Grab's Functionality
 
-
-## Read the docs of censys if you want to add something to the code
+To add features to Grab, consult the Censys documentation:
 
 https://censys-python.readthedocs.io/en/stable/usage-v2.html
 
-
-
-
 ## status.py
 
-
-Can help you get a list of successful responses
+Use this script to obtain a list of successful responses.
