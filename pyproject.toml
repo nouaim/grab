@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "grab"
+version = "2.0.0"
+description = "Collect the IP addresses belonging to an in-scope target, using only keyless public sources"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = [
+    # Only for parsing certificates; the openssl CLI is the fallback if it is absent.
+    "cryptography>=41",
+    # Only for `grab status`; imported lazily so the enumeration modes never need it.
+    "requests>=2.28",
+]
+
+[project.scripts]
+grab = "grab:main"
+
+[tool.setuptools]
+# A single top-level module, so the file stays exactly where it is. status.py is not
+# installed as a module: it is a compatibility wrapper for `grab status`.
+py-modules = ["grab"]
