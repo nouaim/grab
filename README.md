@@ -94,7 +94,7 @@ Each run writes a timestamped directory:
 | `urls.txt` | `https://<name>/` for each resolved name — the honest liveness list, since a name carries SNI |
 | `urls-ip.txt` | `https://<ip>/` and `http://<ip>/` for each address, the shape the original tool produced |
 | `sources.json` | full provenance: every source queried, its URL, count, errors, rate-limit state, confirmation counts, and the caveats below |
-| `cert.pem` | the certificate, in the certificate and `--live` modes |
+| `cert.pem` | the certificate as the host served it, written by `--live` only |
 
 ## What it will not claim
 
