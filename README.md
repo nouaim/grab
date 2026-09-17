@@ -89,7 +89,6 @@ Each run writes a timestamped directory:
 | `ips-annotated.tsv` | address, names, which resolvers saw it, CDN edge flag, ASN, prefix |
 | `names.txt` | every candidate name |
 | `resolved.txt` | the names that resolved |
-| `hosts.txt` | name and its addresses |
 | `prefixes.txt` | allocation prefix, ASN, holder, country, address count |
 | `urls.txt` | `https://<name>/` for each resolved name — the honest liveness list, since a name carries SNI |
 | `urls-ip.txt` | `https://<ip>/` and `http://<ip>/` for each address, the shape the original tool produced |
